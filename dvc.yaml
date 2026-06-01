@@ -21,10 +21,10 @@ stages:
 
   
   model_building:
-    cmd: python src/model/model_building.py
+    cmd: python src/models/model_building.py
     deps:
     - data/interim/train_processed.csv
-    - src/model/model_building.py
+    - src/models/model_building.py
     params:
     - model_building.max_features
     - model_building.ngram_range
@@ -32,26 +32,26 @@ stages:
     - model_building.max_depth
     - model_building.n_estimators
     outs:
-    - lgbm_model.pkl
-    - tfidf_vectorizer.pkl
+    - models/lgbm_model.pkl
+    - models/tfidf_vectorizer.pkl
 
 
   
   model_evaluation:
-    cmd: python src/model/model_evaluation.py
+    cmd: python src/models/model_evaluation.py
     deps:
-    - lgbm_model.pkl
-    - tfidf_vectorizer.pkl
+    - models/lgbm_model.pkl
+    - models/tfidf_vectorizer.pkl
     - data/interim/train_processed.csv
     - data/interim/test_processed.csv
-    - src/model/model_evaluation.py
+    - src/models/model_evaluation.py
     outs:
-    - experiment_info.json
+    - reports/experiment_info.json
 
 
   
   model_registration:
-    cmd: python src/model/register_model.py
+    cmd: python src/models/register_model.py
     deps:
-    - experiment_info.json
-    - src/model/register_model.py
+    - reports/experiment_info.json
+    - src/models/register_model.py
