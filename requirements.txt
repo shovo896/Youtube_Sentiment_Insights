@@ -11,4 +11,8 @@ numpy==2.1.2
 pandas==2.2.3
 wordcloud==1.9.3
 seaborn==0.13.2
+imbalanced-learn==0.14.1
+optuna==4.9.0
+xgboost==3.2.0
+ipykernel==7.2.0
 -e .

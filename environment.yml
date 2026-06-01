@@ -1,0 +1,9 @@
+name: youtube-sentiment
+channels:
+  - defaults
+dependencies:
+  - python=3.11
+  - llvm-openmp
+  - pip
+  - pip:
+      - -r requirements.txt
