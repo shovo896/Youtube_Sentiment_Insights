@@ -53,9 +53,16 @@ stages:
   model_registration:
     cmd: python src/models/register_model.py
     deps:
+    - models/lgbm_model.pkl
+    - models/tfidf_vectorizer.pkl
     - reports/experiment_info.json
     - src/models/register_model.py
-
+    params:
+    - model_building.max_features
+    - model_building.ngram_range
+    - model_building.learning_rate
+    - model_building.max_depth
+    - model_building.n_estimators
 
 
 
