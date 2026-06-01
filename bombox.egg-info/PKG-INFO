@@ -1,0 +1,9 @@
+Metadata-Version: 2.4
+Name: bombox
+Version: 0.0.0
+Author: Shovo
+Author-email: suvo10.info@gmail.com
+License-File: LICENSE
+Dynamic: author
+Dynamic: author-email
+Dynamic: license-file

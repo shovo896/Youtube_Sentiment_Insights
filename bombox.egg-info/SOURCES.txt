@@ -1,0 +1,7 @@
+LICENSE
+README.md
+setup.py
+bombox.egg-info/PKG-INFO
+bombox.egg-info/SOURCES.txt
+bombox.egg-info/dependency_links.txt
+bombox.egg-info/top_level.txt
