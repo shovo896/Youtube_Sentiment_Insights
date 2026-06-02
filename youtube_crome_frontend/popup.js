@@ -28,8 +28,12 @@ elements.limit.addEventListener("change", saveSettings);
 
 async function init() {
   const settings = await chrome.storage.local.get(["apiUrl", "limit"]);
-  elements.apiUrl.value = settings.apiUrl || DEFAULT_API_URL;
+  const apiUrl = migrateApiUrl(settings.apiUrl || DEFAULT_API_URL);
+  elements.apiUrl.value = apiUrl;
   elements.limit.value = settings.limit || "50";
+  if (apiUrl !== settings.apiUrl) {
+    await chrome.storage.local.set({ apiUrl });
+  }
 }
 
 async function saveSettings() {
@@ -197,6 +201,10 @@ function countSentiments(predictions) {
 
 function normalizeApiUrl(url) {
   return (url || DEFAULT_API_URL).trim().replace(/\/+$/, "");
+}
+
+function migrateApiUrl(url) {
+  return normalizeApiUrl(url).replace("127.0.0.1:5000", "127.0.0.1:5001").replace("localhost:5000", "localhost:5001");
 }
 
 function sentimentLabel(sentiment) {
