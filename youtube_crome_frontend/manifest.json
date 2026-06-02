@@ -1,0 +1,21 @@
+{
+  "manifest_version": 3,
+  "name": "YouTube Sentiment Insights",
+  "description": "Analyze visible YouTube comments with the local sentiment API.",
+  "version": "1.0.0",
+  "action": {
+    "default_title": "YouTube Sentiment Insights",
+    "default_popup": "popup.html"
+  },
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "storage"
+  ],
+  "host_permissions": [
+    "https://www.youtube.com/*",
+    "https://youtube.com/*",
+    "http://127.0.0.1:5000/*",
+    "http://localhost:5000/*"
+  ]
+}
